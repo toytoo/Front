@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>无缝轮播简化</title>
+    <style>
+
+        *{ padding: 0; margin: 0; list-style: none;}
+        /*
+         *position为relative，num要相对banner定位
+         */
+        .banner{margin: 100px auto; border: 5px solid #000; width: 550px;
+            height: 300px; position: relative; overflow: hidden}
+
+        /*li要显示成一行 未来要改变的ul的位移，所以设置position*/
+        .banner .img{ width: 5000px; position: absolute; left: 0; top: 0;}
+        .banner .img li{ float: left; }
+
+        /*
+         *num显示圆角，一行，居中
+         *inline-block会默认的有一个空格，设置font-size为0，然后使用margin
+         */
+        .banner .num{ position: absolute; width: 100%; bottom:10px; left: 0; text-align: center;
+            font-size: 0;}
+        .banner .num li{width: 10px; height: 10px; background: #888; border-radius: 50%;
+            display: inline-block; margin: 0 3px; cursor: pointer;}
+
+        /*选中的num背景为橙色*/
+        .banner .num .on{background: #F60;}
+
+        /*按钮居中，按钮中的文字，垂直居中,先隐藏*/
+        .banner .btn{width: 30px; height: 50px; background: rgba(0,0,0,0.5);
+            position: absolute; top:50%; margin-top: -25px; text-align: center; cursor: pointer;
+            line-height: 50px; color: #FFF; font-size: 40px; font-family: Serif; display: none;}
+        .banner:hover .btn {display: block;}
+        .banner .btn_l{left: 0;}
+        .banner .btn_r{right: 0;}
+
+    </style>
+
+    <script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript">
+        
+        $(function () {
+
+            var i = 0;
+            //获取第一张，并拼接到最后
+            var clone_first = $('.banner .img li').first().clone();
+            $('.banner .img').append(clone_first);
+
+            //获取数量
+            var size = $('.banner .img li').size();
+
+            //创建圆点
+            for(var j=0;j<size-1;j++){
+                $('.banner .num').append('<li></li>');
+            }
+
+
+            //第一个圆点
+            $('.banner .num li').first().addClass('on');
+            
+            //鼠标划入圆点
+            $('.banner .num li').hover(function () {
+                var index = $(this).index();
+                i=index;//调整i的值
+                $('.banner .img').stop().animate({left:-550 * i}, 500);
+                $(this).addClass('on').siblings().removeClass('on');
+            })
+
+            //自动轮播
+            var timer=setInterval(function () {
+                i++;
+                move();
+            }, 2000)
+            
+            //对banner定时器的操作
+            $('.banner').hover(function () {
+                clearInterval(timer);//关闭定时器
+            }, function () {
+                timer=setInterval(function () {
+                    i++;
+                    move();
+                }, 2000)
+            })
+            
+
+            //左侧按钮点击事件
+            $('.banner .btn_l').click(function () {
+                i++;
+                move();
+            });
+
+            //右侧按钮点击事件
+            $('.banner .btn_r').click(function(){
+                i--;
+                move();
+            });
+
+
+            //移动
+            function move() {
+                if(i==size){
+                    //滚动到第一个
+                    $('.banner .img').css({left:0});
+                    i=1;
+                }
+
+                if(i==-1){
+                    //滚动最后一个
+                    $('.banner .img').css({left:-500*(size-1)});
+                    i=size-2;
+                }
+
+                $('.banner .img').stop().animate({left:-550 * i}, 500);
+                //圆点添加或移除类
+                if(i==size-1){
+                    $('.banner .num li').eq(0).addClass('on').siblings().removeClass('on');
+                }else{
+                    $('.banner .num li').eq(i).addClass('on').siblings().removeClass('on');
+                }
+            }
+
+        })
+        
+    </script>
+
+</head>
+<body>
+    
+    <div class="banner">
+        <ul class="img">
+            <li><a href="#"><img src="images/1.jpg"></a></li>
+            <li><a href="#"><img src="images/2.jpg"></a></li>
+            <li><a href="#"><img src="images/3.jpg"></a></li>
+            <li><a href="#"><img src="images/4.jpg"></a></li>
+        </ul>
+        <ul class="num">
+
+        </ul>
+
+        <!-- 左右切换按钮-->
+        <div class="btn btn_l">&lt;</div>
+        <div class="btn btn_r">&gt;</div>
+    </div>
+
+</body>
+</html>
