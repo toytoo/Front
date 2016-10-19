@@ -18,4 +18,4 @@ web前端学习的例子
 普通的导航栏，点击切换
 
 效果如下：
-
+![当前页面高亮显示的通栏导航条效果图](https://github.com/windzencoder/Front/blob/master/%E5%AF%BC%E8%88%AA%E6%9D%A1/%E5%BD%93%E5%89%8D%E9%A1%B5%E9%9D%A2%E9%AB%98%E4%BA%AE%E6%98%BE%E7%A4%BA%E7%9A%84%E9%80%9A%E6%A0%8F%E5%AF%BC%E8%88%AA%E6%9D%A1/result.png)
