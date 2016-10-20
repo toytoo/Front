@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>将页面向下推动的导航条</title>
+    <style>
+        * {padding: 0; margin: 0;}
+        a {text-decoration: none;}
+        body {background: #cfc;}
+
+        /*header position*/
+        .header {width: 100%; height: 70px; padding: 0 30px; box-sizing: border-box;
+            position: absolute; top:0; left:0;}
+        .header .logo {float: left; margin-top: 10px;}
+        .header .logo img {height: 50px; }
+        .header .menu {float: right; width: 100px; height: 40px; background: #fff; margin-top: 15px;padding: 0 20px;
+            cursor: pointer;}
+        .header .menu p {line-height: 40px; font-weight: 900; font-size: 18px; color: #333; float: left;}
+        /*button*/
+        .header .menu .btn{width: 24px; height: 20px; float: right;margin-top: 10px;
+            position: relative;}
+        .header .menu .btn i {display: block; width: 24px; height: 4px; background: #333; position: absolute;
+            left: 0;}
+        .header .menu .btn i:nth-child(1) {top:0px;}
+        .header .menu .btn i:nth-child(2) {top:8px;}
+        .header .menu .btn i:nth-child(3) {top:16px;}
+
+        /*按钮的变化*/
+        .header .menu.on .btn i:nth-child(1) {
+            transform: rotate(40deg);
+            -webkit-transform: rotate(40deg);
+            /*左下角*/
+            transform-origin:left bottom ;
+            transition: 0.3s;
+        }
+        .header .menu.on .btn i:nth-child(2) {
+            opacity: 0;
+        }
+        .header .menu.on .btn i:nth-child(3) {
+            transform: rotate(-40deg);
+            -webkit-transform: rotate(-40deg);
+            /*左上角*/
+            transform-origin:left top;
+            transition: 0.3s;
+        }
+
+
+
+
+
+        /*列表*/
+        .nav {width: 100%; background: #fff; padding-bottom: 30px; padding-top: 100px; display: none;}
+        .nav .list {padding: 0 30px; opacity: 0; transition: 0.3s;}
+        /*dl浮动后就不在文档流中了，所以不能撑开*/
+        .nav .list:after {display: block; content: ''; clear: both;}
+        .nav .list dl {float: left; padding-right: 50px;}
+        .nav .list dl dt {margin-bottom: 10px;}
+        .nav .list dl dt a {font-size: 16px; color: #333;}
+        .nav .list dl dd a {font-size: 14px; color: #555; line-height: 1.8;}
+
+        /*淡入的效果*/
+        .nav .list.on {
+            opacity: 1;
+        }
+
+        
+        .banner {width: 100%; height: 500px; background: url("images/banner.jpg") no-repeat center;
+            }
+
+        
+
+    </style>
+
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script>
+        $(function () {
+
+            $('.menu').click(function () {
+                $(this).toggleClass('on');
+                $('.nav').slideToggle();
+                $('.nav .list').toggleClass('on');
+            })
+
+        })
+    </script>
+</head>
+<body>
+
+    <div class="header">
+        <a href="#" class="logo"><img src="images/logo.png" alt=""/></a>
+        <div class="menu">
+            <p>Menu</p>
+            <div class="btn">
+                <i></i>
+                <i></i>
+                <i></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav">
+        <div class="list">
+            <dl>
+                <dt><a href="#">首页</a></dt>
+            </dl>
+            <dl>
+                <dt><a href="#">职业课程</a></dt>
+                <dd><a href="#">课程库</a></dd>
+                <dd><a href="#">知识体系图</a></dd>
+                <dd><a href="#">职业路径图</a></dd>
+                <dd><a href="#">系列课程</a></dd>
+            </dl>
+            <dl>
+                <dt><a href="#">就业学习</a></dt>
+                <dd><a href="#">Web前端开发</a></dd>
+                <dd><a href="#">Android开发</a></dd>
+                <dd><a href="#">JavaWeb开发</a></dd>
+            </dl>
+            <dl>
+                <dt><a href="#">极客社区</a></dt>
+                <dd><a href="#">Wiki</a></dd>
+                <dd><a href="#">技术问答</a></dd>
+                <dd><a href="#">社群</a></dd>
+                <dd><a href="#">资源分享</a></dd>
+            </dl>
+            <dl>
+                <dt><a href="#">极客+</a></dt>
+                <dd><a href="#">高校合作</a></dd>
+                <dd><a href="#">极客人才联盟</a></dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="banner">
+
+    </div>
+
+</body>
+</html>
