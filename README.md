@@ -42,5 +42,10 @@ web前端学习的例子
 
 ![根据子集个数改变导航高度的导航条](https://github.com/windzencoder/Front/blob/master/%E5%AF%BC%E8%88%AA%E6%9D%A1/%E6%A0%B9%E6%8D%AE%E5%AD%90%E9%9B%86%E4%B8%AA%E6%95%B0%E6%94%B9%E5%8F%98%E5%AF%BC%E8%88%AA%E9%AB%98%E5%BA%A6%E7%9A%84%E5%AF%BC%E8%88%AA%E6%9D%A1/effect.gif)
 
+### 将页面向下推动的导航条
+出现菜单时，可以将页面往下面推动
+
+![将页面向下推动的导航条](https://github.com/windzencoder/Front/blob/master/%E5%AF%BC%E8%88%AA%E6%9D%A1/%E5%B0%86%E9%A1%B5%E9%9D%A2%E5%90%91%E4%B8%8B%E6%8E%A8%E5%8A%A8%E7%9A%84%E5%AF%BC%E8%88%AA%E6%9D%A1/effect.gif)
+
 
 
