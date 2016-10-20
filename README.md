@@ -37,8 +37,10 @@ web前端学习的例子
 
 ![摩擦运动动画跟随的导航条](https://github.com/windzencoder/Front/blob/master/%E5%AF%BC%E8%88%AA%E6%9D%A1/%E6%91%A9%E6%93%A6%E8%BF%90%E5%8A%A8%E5%8A%A8%E7%94%BB%E8%B7%9F%E9%9A%8F%E7%9A%84%E5%AF%BC%E8%88%AA%E6%9D%A1/effect.gif)
 
+### 根据子集个数改变导航高度的导航条
+本例子是，在现实菜单时，背景也同样会更随菜单一起向下
 
-
+![根据子集个数改变导航高度的导航条](https://github.com/windzencoder/Front/blob/master/%E5%AF%BC%E8%88%AA%E6%9D%A1/%E6%A0%B9%E6%8D%AE%E5%AD%90%E9%9B%86%E4%B8%AA%E6%95%B0%E6%94%B9%E5%8F%98%E5%AF%BC%E8%88%AA%E9%AB%98%E5%BA%A6%E7%9A%84%E5%AF%BC%E8%88%AA%E6%9D%A1/effect.gif)
 
 
 
