@@ -35,7 +35,7 @@ web前端学习的例子
 ### 摩擦运动动画跟随的导航条
 导航条下有一条线会跟随运动
 
-![摩擦运动动画跟随的导航条](https://github.com/windzencoder/Front/tree/master/%E5%AF%BC%E8%88%AA%E6%9D%A1/%E6%91%A9%E6%93%A6%E8%BF%90%E5%8A%A8%E5%8A%A8%E7%94%BB%E8%B7%9F%E9%9A%8F%E7%9A%84%E5%AF%BC%E8%88%AA%E6%9D%A1)
+![摩擦运动动画跟随的导航条](https://github.com/windzencoder/Front/blob/master/%E5%AF%BC%E8%88%AA%E6%9D%A1/%E6%91%A9%E6%93%A6%E8%BF%90%E5%8A%A8%E5%8A%A8%E7%94%BB%E8%B7%9F%E9%9A%8F%E7%9A%84%E5%AF%BC%E8%88%AA%E6%9D%A1/effect.gif)
 
 
 
