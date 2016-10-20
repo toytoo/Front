@@ -19,3 +19,8 @@ web前端学习的例子
 
 效果如下：
 ![当前页面高亮显示的通栏导航条效果图](https://github.com/windzencoder/Front/blob/master/%E5%AF%BC%E8%88%AA%E6%9D%A1/%E5%BD%93%E5%89%8D%E9%A1%B5%E9%9D%A2%E9%AB%98%E4%BA%AE%E6%98%BE%E7%A4%BA%E7%9A%84%E9%80%9A%E6%A0%8F%E5%AF%BC%E8%88%AA%E6%9D%A1/result.png)
+
+### 可以中英切换的导航条
+可以中英切换的导航条，在鼠标移入时可以显示中文，做到中英文切换，这里分别用css和jQuery进行了实现，最后的效果也是一样的
+
+![可以中英切换的导航条](https://github.com/windzencoder/Front/blob/master/%E5%AF%BC%E8%88%AA%E6%9D%A1/%E5%8F%AF%E4%BB%A5%E4%B8%AD%E8%8B%B1%E5%88%87%E6%8D%A2%E7%9A%84%E5%AF%BC%E8%88%AA%E6%9D%A1/result_effect.gif)
