@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>根据子集个数改变导航高度的导航条</title>
+
+    <style>
+
+        *{margin: 0; padding: 0;}
+        ul{list-style: none;}
+        a{text-decoration: none;}
+
+        body{background: #fff;}
+
+        .header{width: 100%; min-width: 1000px; height: 70px; background: #fff; padding: 0 30px;
+            box-sizing: border-box; box-shadow: 0 3px 3px rgba(0,0,0,0.1);}
+        .header .logo{float: left; margin-top: 10px;}
+        .header .logo img{height: 50px;}
+
+        .header .nav{float: right;}
+        .header .nav li{float: left; position: relative;}
+        .header .nav li>a{color: #333; display: block; line-height: 70px; padding: 0 25px;}
+
+        /*脱离文档流 注意z-index*/
+        .header .nav li .down{position: absolute; top:70px; left: 0px; padding-left: 25px; padding-top: 10px;
+            display: none; z-index: 5;}
+        .header .nav .down a {display: block;line-height: 30px; color: #666; font-size: 14px;}
+
+        /*背景 高度先为0 注意z-index*/
+        .header .hd_bg{width: 100%; position: absolute;left: 0; top:70px;height: 0px;background: rgba(0, 204, 153, 0.5);
+            z-index: 4;}
+
+
+    </style>
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script>
+        $(function () {
+
+            $('.header .nav li').hover(function () {
+                //高度
+                var h=$(this).find('.down').outerHeight();
+                $('.hd_bg').stop().animate({height:h});
+                //注意位置 动画时 down的高度在变 所以放在后面
+                $(this).find('.down').stop().slideDown();
+            }, function () {
+                $('.hd_bg').stop().animate({height:0});
+                $(this).find('.down').stop().slideUp();
+            })
+
+        })
+    </script>
+</head>
+<body>
+
+    <div class="header">
+        <a href="#" class="logo"><img src="images/logo.png" alt="" /></a>
+        <ul class="nav">
+            <li><a href="#">首页</a></li>
+
+            <li>
+                <a href="#">职业课程</a>
+                <div class="down">
+                    <a href="#">课程库</a>
+                    <a href="#">知识体系图</a>
+                    <a href="#">职业路径图</a>
+                    <a href="#">系列课程</a>
+                </div>
+            </li>
+
+            <li>
+                <a href="#">就业学习</a>
+                <div class="down">
+                    <a href="#">Web前端开发</a>
+                    <a href="#">Android开发</a>
+                    <a href="#">JavaWeb开发</a>
+                </div>
+            </li>
+            <li>
+                <a href="bbs.html">极客社区</a>
+                <div class="down">
+                    <a href="#">wiki</a>
+                    <a href="#">技术问答</a>
+                    <a href="#">社群</a>
+                    <a href="#">资源分享</a>
+                </div>
+            </li>
+
+            <li>
+                <a href="jike.html">极客+</a>
+                <div class="down">
+                    <a href="#">高校合作</a>
+                    <a href="#">极客人才联盟</a>
+                </div>
+            </li>
+        </ul>
+        <!-- 负责背景颜色的展示-->
+        <div class="hd_bg"></div>
+    </div>
+
+</body>
+</html>
