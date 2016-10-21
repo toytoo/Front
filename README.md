@@ -47,5 +47,9 @@ web前端学习的例子
 
 ![将页面向下推动的导航条](https://github.com/windzencoder/Front/blob/master/%E5%AF%BC%E8%88%AA%E6%9D%A1/%E5%B0%86%E9%A1%B5%E9%9D%A2%E5%90%91%E4%B8%8B%E6%8E%A8%E5%8A%A8%E7%9A%84%E5%AF%BC%E8%88%AA%E6%9D%A1/effect.gif)
 
+### 从左侧滑动展示的导航条
+导航条自左侧滑入
+
+![从左侧滑动展示的导航条](https://github.com/windzencoder/Front/blob/master/%E5%AF%BC%E8%88%AA%E6%9D%A1/%20%E4%BB%8E%E5%B7%A6%E4%BE%A7%E6%BB%91%E5%8A%A8%E5%B1%95%E7%A4%BA%E7%9A%84%E5%AF%BC%E8%88%AA%E6%9D%A1/effect.gif)
 
 
