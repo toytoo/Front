@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        *{margin: 0; padding: 0;}
+        .header {height: 400px; width: 100%; background: #0c6;}
+
+        .banner {height: 600px; width: 100%; background: #fc3; margin: 30px auto;
+            text-align: center; overflow: hidden;}
+        .banner h1 {font-size: 30px; padding: 50px 0; position: relative; top: 400px; transition: 0.3s 0.5s;}
+        .banner p {font-size: 18px; color: #000; width: 80%; margin: 80px auto; line-height: 1.8;
+            position: relative; top: 400px; transition: 0.5s 0.8s;}
+        .banner.on h1 {top:0;}
+        .banner.on p {top: 0;}
+
+
+
+        .con {width: 800px; height: 500px; margin: 30px auto; border: 1px solid red;
+            overflow: hidden;}
+        .con_l {float: left; position: relative; left: -371px; transition: 0.3s;}
+        .con_r {float: right; position: relative; right: -371px; transition: 0.3s;}
+        .con.on .con_l {left:0;}
+        .con.on .con_r {right: 0;}
+
+
+        .news {width: 1000px; height: 400px; margin: 0 auto; background: #390;}
+        .footer {width: 100%; height: 100px; background: #f96;}
+
+
+
+
+    </style>
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script>
+
+        $(function () {
+
+            /*
+            //获取窗口的高度
+            var win_h = $(window).height();
+            //获取元素距离顶部的值
+            var banner_h = $('.banner').offset().top;
+            var con_h = $('.con').offset().top;
+
+
+            $(window).scroll(function () {
+
+                var top = $(window).scrollTop();
+
+                if(top>banner_h-win_h*0.5){
+                    $('.banner').addClass('on');
+                }
+
+
+                if(top>banner_h-con_h*0.5){
+                    $('.con').addClass('on');
+                }
+            })
+            */
+
+
+            function addclass(e) {
+                var win_h = $(window).height();
+                var t = $(e).offset().top;
+                var top = $(window).scrollTop();
+                if(top>t-win_h*0.5){
+                    $(e).addClass('on');
+                }
+            }
+            
+            $(window).scroll(function () {
+
+                addclass('.banner');
+                addclass('.con');
+
+            })
+
+
+
+            
+        })
+
+    </script>
+</head>
+<body>
+
+    <div class="header">
+
+    </div>
+
+    <div class="banner">
+        <h1>非诚美女嘉宾自爆：妈妈同时嫁给一对亲兄弟</h1>
+        <p>本期男嘉宾彭洪峥来自上海，号称“史上最帅IT男”。改变了了IT男给人刻板、无趣的印象，让所有人眼前一亮。在现场，彭洪峥自信的表示“不仅在《缘来非诚勿扰》节目史上我是最潮最时尚的IT男，在整个IT行业来说，我都堪称是颜值担当。”工作之余，彭洪峥最大的爱好是跳舞，还曾在跨年演唱会为钟汉良伴过舞，“在IT界来说，肯定没人跳舞跳得比我好。”
+
+            而在谈及感情经历的时候，彭洪峥的“劈腿”恋爱观却引起了热烈的讨论。在短片中，彭洪峥是这样介绍感情的：“几段感情接连被劈腿，在此之后我更害怕人家离开我或者背叛我，影响到后面的感情，变得我也不会那么的专一。因为同时爱着两个人，这样其中一个不爱我的话，还有一个人在爱着我。这样会让我觉得很有安全感。我自己也很疑惑，到底可不可以同时喜欢两个人？”</p>
+    </div>
+
+    <div class="con">
+
+        <div class="con_l"><img src="images/kc1.png" alt="" /></div>
+        <div class="con_r"><img src="images/kc2.png" alt="" /></div>
+
+    </div>
+
+    <div class="news">
+
+
+
+    </div>
+
+    <div class="footer">
+
+    </div>
+
+</body>
+</html>

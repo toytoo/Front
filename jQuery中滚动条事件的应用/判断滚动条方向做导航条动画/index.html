@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>判断滚动条方向做导航动画</title>
+    <style>
+
+        * {margin: 0;padding: 0;}
+        .nav {height: 100px; width: 100%; background: rgba(0,0,0,0.5); position: fixed;
+            top: -100px; left: 0; transition: 0.3s;}
+        .nav.on {top:0;}
+
+    </style>
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script>
+
+        $(function () {
+
+            var top1 = $(window).scrollTop();
+            $('.nav').addClass('on');
+
+            $(window).scroll(function () {
+
+                var top2 = $(window).scrollTop();
+                if(top2>top1){
+                    //向下
+                    $('.nav').removeClass('on');
+                }else{
+                    //向上
+                    $('.nav').addClass('on');
+                }
+                top1 = top2;
+
+            })
+        })
+        
+    </script>
+</head>
+<body>
+
+    <div class="nav">
+
+    </div>
+
+    <script>
+        for(var i=0; i<100; i++){
+            document.write('<h1>'+i+'</h1>');
+        }
+    </script>
+
+</body>
+</html>
