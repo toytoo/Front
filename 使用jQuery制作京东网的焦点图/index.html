@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>京东网的焦点图</title>
+
+    <style>
+
+        * {padding: 0; margin: 0;}
+        ul {list-style: none;}
+        a {text-decoration: none;}
+
+
+        .out {width: 730px; height: 454px; border: 5px solid #000; margin: 50px auto;
+            position: relative;}
+
+        /*定位后脱离文档流，会把后面的内容覆盖住*/
+        .out .img li {position: absolute; top: 0; left: 0; display: none;}
+
+
+        .out .num {position: absolute; bottom: 20px; left: 0; font-size: 0; text-align: center;
+            width: 100%;}
+        /*inline-block后有间隙，在父级定义font-size为0即可*/
+        .out .num li {width: 20px; height: 20px; background: #666; color: #fff; text-align: center;
+            line-height: 20px;border-radius: 10px; display: inline-block; font-size: 16px;
+            margin: 0 3px; cursor: pointer;}
+
+        .out .num li.active{
+            background: #a00;;
+        }
+
+        .btn {position: absolute; top: 50%; margin-top: -30px;width: 30px; height: 60px; background: rgba(0,0,0,0.5);
+            color: #fff;text-align: center; line-height: 60px; font-size: 40px;
+            cursor: pointer; display: none;}
+        .btn.left {left: 0;}
+        .btn.right {right: 0;}
+
+        .out:hover .btn{
+            display: block;
+        }
+
+
+    </style>
+
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script>
+
+        $(function () {
+
+            //创建索引
+            var size=$('.img li').size();
+            for(var j=1; j<=size; j++){
+                $('.num').append('<li>'+j+'</li>');
+            }
+
+            //手动控制轮播
+            $('.img li').eq(0).show();
+            $('.num li').eq(0).addClass('active');
+
+            $('.num li').mouseover(function () {
+                $(this).addClass('active').siblings().removeClass('active');
+                //索引值
+                var index = $(this).index();
+                $('.img li').eq(index).stop().fadeIn().siblings().stop().fadeOut();
+
+                i = index;
+
+            })
+
+            //自动
+            var i=0;
+            var timer = setInterval(moveR,1500);
+
+            //向右移动
+            function moveR(){
+                i++;
+                if(i>=size){
+                    i=0;
+                }
+                $('.num li').eq(i).addClass('active').siblings().removeClass('active');
+                $('.img li').eq(i).fadeIn().siblings().fadeOut();
+            }
+
+            //向左移动
+            function moveL(){
+                i--;
+                if(i<=-1){
+                    i=size-1;
+                }
+                $('.num li').eq(i).addClass('active').siblings().removeClass('active');
+                $('.img li').eq(i).fadeIn().siblings().fadeOut();
+            }
+
+            //清除定时器
+            $('.out').hover(function () {
+                clearInterval(timer);
+            }, function () {
+                timer = setInterval(moveR,1500);
+            })
+            
+            //左右按钮
+            $('.left').click(function () {
+                moveL();
+            })
+            
+            $('.right').click(function () {
+                moveR();
+            })
+
+
+
+        })
+
+    </script>
+</head>
+<body>
+
+    <div class="out">
+        
+        <ul class="img">
+            <li><a href="#"><img src="images/1.jpg"></a></li>
+            <li><a href="#"><img src="images/2.jpg"></a></li>
+            <li><a href="#"><img src="images/3.jpg"></a></li>
+            <li><a href="#"><img src="images/4.jpg"></a></li>
+            <li><a href="#"><img src="images/5.jpg"></a></li>
+        </ul>
+
+        <ul class="num">
+
+        </ul>
+
+        <div class="btn left">&lt;</div>
+        <div class="btn right">&gt;</div>
+
+    </div>
+
+</body>
+</html>
