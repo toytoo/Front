@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>从底部弹出</title>
+    <style>
+        /*modol背景*/
+        .modal {
+            display: none;/*默认隐藏*/
+            position: fixed;/*固定不动*/
+            z-index: 1;
+            padding-top: 100px;/*box的位置*/
+            left: 0;
+            top: 0;
+            width: 100%;/*全屏*/
+            height: 100%;/*全屏*/
+            overflow: auto;/*可以滚动*/
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            -webkit-animation-name: fadeIn; /* Fade in the background */
+            -webkit-animation-duration: 0.4s;
+            animation-name: fadeIn;
+            animation-duration: 0.4s
+        }
+
+        @-webkit-keyframes fadeIn {
+            from {opacity: 0}
+            to {opacity: 1}
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0}
+            to {opacity: 1}
+        }
+
+        /*modal内容*/
+        .modal-content {
+            position: fixed;
+            bottom: 0;
+            background-color: #fefefe;
+            width: 100%;
+            -webkit-animation-name: slideIn;
+            -webkit-animation-duration: 0.4s;
+            animation-name: slideIn;
+            animation-duration: 0.4s;
+        }
+
+        /*动画*/
+        @-webkit-keyframes slideIn {
+            from {bottom:-300px; opacity: 0;}
+            to {bottom: 0; opacity: 1;}
+        }
+        @keyframes slideIn {
+            from {bottom:-300px; opacity: 0;}
+            to {bottom: 0; opacity: 1;}
+        }
+
+        /*关闭按钮*/
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus{
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-header {
+            padding: 2px 16px;
+            background-color: #5cb85c;
+            color: white;
+        }
+
+        .modal-body {
+            padding: 2px 16px;
+        }
+
+        .modal-footer {
+            padding: 2px 16px;
+            background-color: #5cb85c;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+<h2>Bottom Modal</h2>
+<!--打开模态-->
+<button id="myBtn">打开Modal</button>
+<!--模态框-->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <span class="close">×</span>
+            <h2>Modal Header</h2>
+        </div>
+        <div class="modal-body">
+            <p>Some text in the Modal Body</p>
+            <p>Some other text...</p>
+        </div>
+        <div class="modal-footer">
+            <h3>Modal Footer</h3>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var modal = document.getElementById("myModal");
+
+    var btn = document.getElementById("myBtn");
+
+    var span = document.getElementsByClassName("close")[0];
+
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+    //当用户点击modal的其它地方时，关闭
+    window.onclick = function (event) {
+        if(event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+</script>
+
+</body>
+</html>
