@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全屏滚动</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        html, body{
+            height: 100%;
+            /*去掉滚动条，以后通过js控制滚动*/
+            /*overflow: hidden;*/
+        }
+
+        #container,.sections, .section
+        {
+            height: 100%;
+        }
+
+        #section0,
+        #section1,
+        #section2,
+        #section3{
+            /*使背景图片始终位于屏幕的中心*/
+            background-color: #000;
+            background-size: cover;
+            background-position: 50% 50%;
+            text-align: center;
+            color: #fff;
+        }
+        #section0{
+            background-image: url("images/1.jpg");
+        }
+        #section1{
+            background-image: url("images/2.jpg");
+        }
+        #section2{
+            background-image: url("images/3.jpg");
+        }
+        #section3{
+            background-image: url("images/4.jpg");
+        }
+
+        .left {
+            float: left;
+        }
+        #container{
+            width: 400%;
+        }
+        .section{
+            width: 25%;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="sections">
+            <div class="section left" id="section0">
+                <h3>this is a page</h3>
+            </div>
+            <div class="section left" id="section1">
+                <h3>this is a page</h3>
+            </div>
+            <div class="section left" id="section2">
+                <h3>this is a page</h3>
+            </div>
+            <div class="section left" id="section3">
+                <h3>this is a page</h3>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
