@@ -2,6 +2,11 @@
 
 参考[全屏切换效果](http://www.imooc.com/learn/374)，介绍了封装了一个jQuery插件
 
+效果：
+
+![效果](https://github.com/windzencoder/Front/blob/master/images/fullpage_01.png)
+
+
 ## jQuery插件开发
 
 参考：
