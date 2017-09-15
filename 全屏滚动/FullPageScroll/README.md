@@ -113,8 +113,46 @@ $(".btn1").click(function(){
 + touchSensitivity-在移动设备中滑动页面的敏感性，默认为5，是按百分比来衡量，最高为100，越大则越难滑动
 + continuousVertical-是否循环滚动，默认为false。如果设置为true，则页面会循环滚动，而不像loopTop或loopBottom那样出现跳动，注意这个属性和loopTop、loopBottom不兼容，不要同时设置
 + animateAnchor-锚链接是否可以控制滚动页面，默认为true。如果设置为false，则通过锚链接定位到某个页面显示不再有动画效果
-+ recordHistory-
++ recordHistory-是否记录历史，默认为true。可以记录页面滚动历史，通过浏览器的前进后退来导航。注意如果设置了autoScrolling:false，那么这个配置也将会被关闭，即设置为false
++ menu-绑定菜单，设定的相关属性与anchors的值对应后，菜单可以控制滚动，默认为false。可以设置菜单为jquery选择器。这样可以做到联动的效果，注意要添加data-menuanchor，如下，注意要设置ul的z-index,否者会被覆盖：
 
+  ```
+  <ul id="myMenu">
+    <li data-menuanchor="firstPage" class="active"><a href="#firstPage">First section</a></li>
+    <li data-menuanchor="secondPage"><a href="#secondPage">Second section</a></li>
+    <li data-menuanchor="thirdPage"><a href="#thirdPage">Third section</a></li>
+    <li data-menuanchor="fourthPage"><a href="#fourthPage">Fourth section</a></li>
+  </ul>
+  
+  $('#fullpage').fullpage({
+	  anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage'],
+	  menu: '#myMenu'
+  });
+```
+
+其它属性：
+
++ navigation-是否显示导航，默认为false。如果设置为true，会显示小圆点，作为导航
++ navigationPosition-导航小圆点的位置，可以设置为left或right
++ navigationTooltips-导航小圆点的tooltips，默认为[]，注意按照顺序设置
++ showActiveTooltip-是否显示当前页面的导航的tooltip信息，默认为false
++ slidesNavigation-是否显示横向幻灯片的导航，默认为false
++ slidesNavPosition-横向幻灯片导航的位置，默认为bottom，可以设置为top或bottom
++ scrollOverflow-内容超过满屏后是否显示滚动条，默认为false。如果设置为true，则会显示滚动条，如果要滚动查看内容，还需要scrolloverflow.min.js插件配合
++ sectionSelector-section的选择器，默认为.section
++ slideSelector-slide的选择器，默认为.slide
+
+
+
+### fullpage方法
+
++ `$.fn.fullpage.moveSectionUp();`-向上滚动一页
++ `$.fn.fullpage.moveSectionDown();`-向下滚动一页
++ `$.fn.fullpage.moveTo(section, slide)`-滚动到第几页，第几个幻灯片，注意，页面从1开始，而幻灯片从0开始
++ `silentMoveTo(section, slide)`-滚动到第几页，和moveTo一样，但是没有动画效果
++ `moveSlideRight()`-幻灯片向右滚动
++ `moveSlideLeft()`-幻灯片向左滚动
++ `reBuild()`-重新更新页面和尺寸，用于通过ajax请求后改变了页面结构之后，重建效果
 
 
 
