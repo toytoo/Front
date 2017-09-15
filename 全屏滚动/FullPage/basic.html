@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title></title>
+    <!-- fullpage样式文件-->
+    <link rel="stylesheet" href="lib/jquery.fullPage.css">
+
+    <style>
+        body{
+            color: #fff;
+        }
+        .section1{
+            background-color: green;
+        }
+        .section2{
+            background-color: orange;
+        }
+        .section3{
+            background-color: aqua;
+        }
+        .section4{
+            background-color: aquamarine;
+        }
+        .slide{
+            text-align: center;
+            font-size: 30px;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id="fullpage">
+    <div class="section section1">Some One</div>
+    <!-- 幻灯片-->
+    <div class="section section2">
+        <div class="slide"> Slide 1 </div>
+        <div class="slide"> Slide 2 </div>
+        <div class="slide"> Slide 3 </div>
+        <div class="slide"> Slide 4 </div>
+    </div>
+    <div class="section section3">Some Three</div>
+    <div class="section section4">Some Four</div>
+</div>
+
+
+<script src="lib/jquery-2.1.4.min.js"></script>
+<!-- fullpage.js文件-->
+<script src="lib/jquery.fullPage.min.js"></script>
+<script>
+    <!-- 激活fullpage效果-->
+    $(document).ready(function () {
+        $('#fullpage').fullpage();
+    })
+</script>
+
+</body>
+</html>

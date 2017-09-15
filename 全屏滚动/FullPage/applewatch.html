@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Apple Watch宣传页</title>
+    <!-- fullpage样式文件-->
+    <link rel="stylesheet" href="lib/jquery.fullPage.css">
+    <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+<body>
+
+<div id="fullpage">
+
+    <div class="section section1">
+        <h1>更自由，更来电</h1>
+        <p>
+            在泳池里接个电话，在跑步时在线听歌，或者叫 Siri 发条信息，这一切，不带手机也能做到。现在，有了内置蜂窝网络功能的全新 Apple Watch Series 3，只要戴上手表，就能自由自在，走得更远1。
+        </p>
+        <a href="#">进一步了解</a>
+    </div>
+
+    <div class="section section2">
+        <h1>真正与你贴近的设备</h1>
+        <a href="#">进一步了解</a>
+    </div>
+
+    <div class="section section3">
+        <h1>非同一般的精准计时</h1>
+        <p>
+            更灵敏更机智，更会在手表上说话发信息、打电话、收邀请。手机没带 也没关系
+        </p>
+        <a href="#">进一步了解</a>
+    </div>
+
+    <div class="section section4">
+        <h1>日常生活得心应手</h1>
+        <div class="row">
+            <div class="column">
+                <img src="img/primary_large_2x.jpg" class="primary">
+                <h4 class="primary"></h4>
+                <div class="intro">
+                    <p>让 Siri 帮你设提醒、发邀请、指方向，没带手机也没关系</p>
+                    <a href="#" class="more">了解更多</a>
+                </div>
+            </div>
+            <div class="column">
+                <img src="img/sport_large_2x.jpg" class="sport">
+                <h4 class="sport"></h4>
+                <div class="intro">
+                    <p>手机留在家,App 提醒一个不少</p>
+                    <a href="#" class="more">了解更多</a>
+                </div>
+            </div>
+            <div class="column">
+                <img src="img/edition_large_2x.jpg" class="edition">
+                <h4 class="edition"></h4>
+                <div class="intro">
+                    <p>运动时刻，时刻消息灵通</p>
+                    <a href="#" class="more">了解更多</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="lib/jquery-2.1.4.min.js"></script>
+<!-- fullpage.js文件-->
+<script src="lib/jquery.fullPage.min.js"></script>
+<!--move.js-->
+<script src="lib/move.js"></script>
+<script>
+    <!-- 激活fullpage效果-->
+    $(document).ready(function () {
+        $('#fullpage').fullpage({
+            verticalCentered: false,
+            anchors: ['page1', 'page2', 'page3', 'page4'],
+            navigation: true,
+            navigationTooltips : ['更自由，更来电','保持联络，无需手机在手','各项运动，放手去动','三个圆环，圆一个目标'],
+            afterLoad:function(link, index){
+                switch (index){
+                    case 1:
+                        move('.section1 h1').scale(1.5).end();//标题放大1.5倍
+                        move('.section1 p').set('margin-top','5%').end();//设置margin-top
+                        break;
+                    case 2:
+                        move('.section2 h1').scale(0.7).end();
+                        break;
+                    case 3:
+                        move('.section3 h1').set('margin-left','20%').end();
+                        move('.section3 p').set('margin-left','20%').end();
+                        break;
+                    case 4:
+                            //图片依次旋转360，再依次放大
+                        move('.section4 img.primary').rotate(360).end(function () {
+                            move('.section4 img.sport').rotate(360).end(function () {
+                                move('.section4 img.edition').rotate(360).end(function () {
+                                    move('.section4 h4.primary').scale(1.3).end(function () {
+                                        move('.section4 h4.sport').scale(1.3).end(function () {
+                                            move('.section4 h4.edition').scale(1.3).end();
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                        break;
+                    default :
+                        break;
+                }
+            },
+            onLeave:function(index, nextIndex, direction){//把动画还原
+                switch (index){
+                    case 1:
+                        move('.section1 h1').scale(1.0).end();
+                        move('.section1 p').set('margin-top','800px').end();
+                        break;
+                    case 2:
+                        move('.section2 h1').scale(1.0).end();
+                        break;
+                    case 3:
+                        move('.section3 h1').set('margin-left','-1500px').end();
+                        move('.section3 p').set('margin-left','1500px').end();
+                        break;
+                    case 4:
+                        move('.section4 img.primary').rotate(-360).end();
+                        move('.section4 img.sport').rotate(-360).end();
+                        move('.section4 img.edition').rotate(-360).end();
+                        move('.section4 h4.primary').scale(1.0).end();
+                        move('.section4 h4.sport').scale(1.0).end();
+                        move('.section4 h4.edition').scale(1.0).end();
+
+                        break;
+                    default :
+                        break;
+                }
+            },
+            afterRender:function(){
+
+            },
+        });
+    })
+</script>
+
+</body>
+</html>
