@@ -167,9 +167,9 @@ $(".btn1").click(function(){
 
 ### fullpage回调函数
 
-**afterLoad (anchorLink, index)**滚动到某一个section，且滚动结束后，会触发一次此回到函数，函数接收anchorLink和index两个参数，anchorLink是锚链接的名称，index是序号，从1开始计算。可以根据anchorLink和index参数值的判断，触发相应的事件。
+**afterLoad (anchorLink, index)** 滚动到某一个section，且滚动结束后，会触发一次此回到函数，函数接收anchorLink和index两个参数，anchorLink是锚链接的名称，index是序号，从1开始计算。可以根据anchorLink和index参数值的判断，触发相应的事件。
 
-**onLeave (index, nextIndex, direction)**在离开一个section时，会触发一次此回调函数，接收index、nextIndex和direction3个参数
+**onLeave (index, nextIndex, direction)** 在离开一个section时，会触发一次此回调函数，接收index、nextIndex和direction3个参数
 
 + index-离开的页面的序号，从1开始计算
 + nextIndex-是滚动到的目标页面的序号，从1开始计算
@@ -178,11 +178,11 @@ $(".btn1").click(function(){
 通过`return false;`可以取消滚动
 
 
-**afterRender()**页面结构生成后的回调函数，或者说页面结构初始化完成后的回调函数
-**afterResize()**浏览器窗口尺寸改变后的回调函数
+**afterRender()** 页面结构生成后的回调函数，或者说页面结构初始化完成后的回调函数
+**afterResize()** 浏览器窗口尺寸改变后的回调函数
 
-**afterSlideLoad (anchorLink, index, slideAnchor, slideIndex)**滚动到某一幻灯片后的回调函数，与afterLoad类似
-**onSlideLeave (anchorLink, index, slideIndex, direction, nextSlideIndex)**在离开一个slide时，会触发一次此回调函数，与onLeave类似
+**afterSlideLoad (anchorLink, index, slideAnchor, slideIndex)** 滚动到某一幻灯片后的回调函数，与afterLoad类似
+**onSlideLeave (anchorLink, index, slideIndex, direction, nextSlideIndex)** 在离开一个slide时，会触发一次此回调函数，与onLeave类似
 
 
 
