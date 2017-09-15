@@ -87,6 +87,21 @@ $(".btn1").click(function(){
 `$(function() { ... });`等同于`$(document).ready(function() { ... });`
 
 
+## fullPage.js
+
+使用[fullPage.js](https://github.com/alvarotrigo/fullPage.js/)插件来实现全屏滚动的效果，教程参考[FullPage.js全屏滚动插件](http://www.imooc.com/learn/514)
+
+参数的含义：
+
++ sectionsColor-为每个section设置背景色
++ controlArrows-是否通过箭头来控制slide幻灯片，默认为true
++ verticalCentered-每一页的内容是否垂直居中，默认为true
++ resize-字体是否随着窗口缩放而缩放，默认为fasle
++ scrollingSpeed-设置滚动的速度，单位为毫秒，默认为700 
++ anchors-定义锚链接，默认为[]。有了锚链接，用户就可以快速打开定位到某一页面。注意定义锚链接的时候，值不要和页面的id或name相同，尤其是在IE浏览器下。而且定义的时候不要添加#。添加后滚动到某一个页面，浏览器会地址类似于`http://localhost:63342/FullPage/setting_01.html#page3`
++ lockAnchors-是否锁定锚链接，默认为false。如果设置为true，那么定义的锚链接，也就是anchors则没有效果。这个配置项很少使用
++ easing-定义页面section滚动的动画方式。默认为easeInOutCubic，如果修改此项，需要引入jquery.easings插件，或者jquery ui
++ css3-是否使用CSS3 transforms来实现滚动效果，默认为true。这个配置项可以提高支持css3的浏览器，比如移动设备等速度，如果浏览器不支持css3，则会使用jquery来代替css3实现滚动效果
 
 
 
