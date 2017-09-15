@@ -91,6 +91,14 @@ $(".btn1").click(function(){
 
 使用[fullPage.js](https://github.com/alvarotrigo/fullPage.js/)插件来实现全屏滚动的效果，教程参考[FullPage.js全屏滚动插件](http://www.imooc.com/learn/514)
 
+
+
+效果如下：
+
+![效果](https://github.com/windzencoder/Front/blob/master/images/fullpage_02.png)
+
+
+
 配置参数的含义：
 
 + sectionsColor-为每个section设置背景色
@@ -123,7 +131,7 @@ $(".btn1").click(function(){
 	    <li data-menuanchor="thirdPage"><a href="#thirdPage">Third section</a></li>
 	    <li data-menuanchor="fourthPage"><a href="#fourthPage">Fourth section</a></li>
 	  </ul>
-
+	
 	  $('#fullpage').fullpage({
 		  anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage'],
 		  menu: '#myMenu'
@@ -183,6 +191,14 @@ $(".btn1").click(function(){
 
 **afterSlideLoad (anchorLink, index, slideAnchor, slideIndex)** 滚动到某一幻灯片后的回调函数，与afterLoad类似
 **onSlideLeave (anchorLink, index, slideIndex, direction, nextSlideIndex)** 在离开一个slide时，会触发一次此回调函数，与onLeave类似
+
+
+
+### Move.js
+
+[**move.js**](https://github.com/visionmedia/move.js/)用来做css动画，示例参考[move.js](https://visionmedia.github.io/move.js/)
+
+
 
 
 
