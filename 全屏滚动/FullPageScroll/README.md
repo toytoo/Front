@@ -116,21 +116,19 @@ $(".btn1").click(function(){
 + recordHistory-是否记录历史，默认为true。可以记录页面滚动历史，通过浏览器的前进后退来导航。注意如果设置了autoScrolling:false，那么这个配置也将会被关闭，即设置为false
 + menu-绑定菜单，设定的相关属性与anchors的值对应后，菜单可以控制滚动，默认为false。可以设置菜单为jquery选择器。这样可以做到联动的效果，注意要添加data-menuanchor，如下，注意要设置ul的z-index,否者会被覆盖：
 
-  ```
-  <ul id="myMenu">
-    <li data-menuanchor="firstPage" class="active"><a href="#firstPage">First section</a></li>
-    <li data-menuanchor="secondPage"><a href="#secondPage">Second section</a></li>
-    <li data-menuanchor="thirdPage"><a href="#thirdPage">Third section</a></li>
-    <li data-menuanchor="fourthPage"><a href="#fourthPage">Fourth section</a></li>
-  </ul>
-  
-  $('#fullpage').fullpage({
-	  anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage'],
-	  menu: '#myMenu'
-  });
-```
 
-其它属性：
+	  <ul id="myMenu">
+	    <li data-menuanchor="firstPage" class="active"><a href="#firstPage">First section</a></li>
+	    <li data-menuanchor="secondPage"><a href="#secondPage">Second section</a></li>
+	    <li data-menuanchor="thirdPage"><a href="#thirdPage">Third section</a></li>
+	    <li data-menuanchor="fourthPage"><a href="#fourthPage">Fourth section</a></li>
+	  </ul>
+
+	  $('#fullpage').fullpage({
+		  anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage'],
+		  menu: '#myMenu'
+	  });
+
 
 + navigation-是否显示导航，默认为false。如果设置为true，会显示小圆点，作为导航
 + navigationPosition-导航小圆点的位置，可以设置为left或right
@@ -156,8 +154,35 @@ $(".btn1").click(function(){
 
 
 
+### Lazy Loading
+
+延时加载图片`<img data-src="image.png">`，使用data-src代替src
+延时加载视频，使用data-src代替src
+
+	<video>
+		<source data-src="video.webm" type="video/webm" />
+		<source data-src="video.mp4" type="video/mp4" />
+	</video>
 
 
+### fullpage回调函数
+
+**afterLoad (anchorLink, index)**滚动到某一个section，且滚动结束后，会触发一次此回到函数，函数接收anchorLink和index两个参数，anchorLink是锚链接的名称，index是序号，从1开始计算。可以根据anchorLink和index参数值的判断，触发相应的事件。
+
+**onLeave (index, nextIndex, direction)**在离开一个section时，会触发一次此回调函数，接收index、nextIndex和direction3个参数
+
++ index-离开的页面的序号，从1开始计算
++ nextIndex-是滚动到的目标页面的序号，从1开始计算
++ direction-判断是往上滚动还是往下滚动，值是up或down
+
+通过`return false;`可以取消滚动
+
+
+**afterRender()**页面结构生成后的回调函数，或者说页面结构初始化完成后的回调函数
+**afterResize()**浏览器窗口尺寸改变后的回调函数
+
+**afterSlideLoad (anchorLink, index, slideAnchor, slideIndex)**滚动到某一幻灯片后的回调函数，与afterLoad类似
+**onSlideLeave (anchorLink, index, slideIndex, direction, nextSlideIndex)**在离开一个slide时，会触发一次此回调函数，与onLeave类似
 
 
 
