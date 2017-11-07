@@ -46,6 +46,10 @@
     </script>
 ```
 
+效果如下：
+
+![1](https://github.com/windzencoder/Front/blob/master/zTree-Learn/screenshot/1.png)
+
 ### 简 JSON数据
 
 简单模式的 JSON 数据需要使用 id / pId 表示节点的父子包含关系
@@ -77,8 +81,6 @@ var treeNodes = [
 ```
 
 treeNode节点数据:
-
-+ 
 
 
 ```
@@ -132,6 +134,9 @@ treeNode节点数据:
 ```
 
 
+效果如下：
+
+![2](https://github.com/windzencoder/Front/blob/master/zTree-Learn/screenshot/2.png)
 
 
 
