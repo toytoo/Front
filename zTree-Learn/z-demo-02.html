@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="./lib/zTree/demoStyle/demo.css" type="text/css">
+    <link rel="stylesheet" href="./lib/zTree/zTreeStyle/zTreeStyle.css" type="text/css">
+    <script type="text/javascript" src="./lib/js/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="./lib/js/jquery.ztree.core.js"></script>
+    <script LANGUAGE="JavaScript">
+        var zTreeObj;
+        var setting = {
+            data:{
+                simpleData:{
+                    enable: true
+                }
+            }
+        };
+        var zNodes = [
+            {id:1, pId: 0, name:"后台页面"},
+            {id:2, pId: 0, name:"测试页面", open:true},
+            {id:21, pId: 2, name:"文件上传", open:true},
+            {id:3, pId: 0, name:"系统管理", open:true},
+            {id:31, pId: 3, name:"用户管理", open:true},
+            {id:32, pId: 3, name:"角色管理", open:true},
+            {id:33, pId: 3, name:"菜单管理", open:true},
+            {id:4, pId: 0, name:"个人设置"}
+        ];
+        $(document).ready(function () {
+            zTreeObj = $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+        });
+    </script>
+</head>
+<body>
+
+<div>
+    <ul id="treeDemo" class="ztree"></ul>
+</div>
+
+</body>
+</html>
