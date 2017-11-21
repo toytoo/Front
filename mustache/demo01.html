@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/mustache.min.js"></script>
+</head>
+<body onload="loadUser()">
+
+<div id="target">Loading...</div>
+
+<script id="template" type="x-tmpl-mustache">
+Hello {{ name }}!
+</script>
+
+<script>
+
+    function loadUser() {
+        var template = $('#template').html();
+        Mustache.parse(template);   // 可选, 在将来使用是可快一点
+        var rendered = Mustache.render(template, {name: "Luke"});
+        $('#target').html(rendered);
+    }
+
+</script>
+
+</body>
+</html>
