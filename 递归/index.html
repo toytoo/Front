@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<div id="start">
+    <div id="inner">Check The Console</div>
+    <span>To See The Recursive</span>
+    <div id="outer">Traversal</div>
+</div>
+
+<script>
+    function Traverse(ele, callback) {
+        callback(ele);
+        ele = ele.firstChild;
+        while (ele) {
+            Traverse(ele, callback);
+            ele = ele.nextSibling;
+        }
+    }
+
+    Traverse(document.getElementById('start'), (ele) => console.log(ele));
+
+</script>
+
+</body>
+</html>
