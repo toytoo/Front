@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+
+<script>
+
+    function Stack(){
+        this._size = 0;
+        this._stroage = {};
+    }
+
+    Stack.prototype.push = function(data){
+        var size = this._size++;
+        this._stroage[size] = data;
+    }
+
+    Stack.prototype.pop = function(){
+        var size = this._size, deletedData;
+        if(size){
+            deletedData = this._stroage[size];
+            delete this._storage[size];
+            this._size--;
+            return deletedData;
+        }
+    }
+
+</script>
+
+</body>
+</html>
